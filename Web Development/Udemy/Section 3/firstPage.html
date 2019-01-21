@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- meta data here-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>First Page</title>
+</head>
+<body>
+    <!-- content data here -->
+    <h1>This is my first tag!!!</h1>
+    <h2>This is another heading</h2>
+    <h6>THis is a Third heading</h6>
+
+    <p>This is some text.</p>
+    <p>Using a p tag serperate items onto different lines. These types of this headers and paragraphs are block level elements</p>
+    <p>You can also make text <strong>bold</strong> using the strong tag or b tag. But b is being fazed out</p>
+    
+    <p>You can also make text <em>italisized</em> using the em (empahsis) tag or i tag. But i is also being fazed out</p>
+
+    <p> Bold and italics are a example of a inline element</p>
+    
+    <p>Another Type of inline element is the div tag which has no effect by itself but is used in order to help style things with CSS by grouping it together. However this is a block element and moves the enclosed items to a new line <div>ex</div></p>
+    <p>For inline grouing you use the <span>span</span>s tag which is the exact same but doesn;t do a new line</p>
+
+    <ol>
+        <li>This is a ordered(numbered) list.</li>
+        <li>It is made with a outer tag of ol.</li>
+        <li>Each element is added by surrounding it in a li tag.</li>
+    </ol>
+
+    <ul>
+            <li>This is a bullet list.</li>
+            <li>It is made with a outer tag of ul instead of a ol.</li>
+            <li>Each element is also added by surrounding it in a li tag.</li>
+            <li> You can also add <strong>inline</strong> <em>elements</em> and even other lists instide a lists.
+                <ul>
+                    <li>You do this by making another ul/ol tag inside of a li tag in a list. then code the new list like normalas normal.
+                        <ol>
+                            <li>You can do this multple times.
+                                <ul>
+                                    <li>You can even swap back and forth</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </li>
+                </ul>
+            </li>
+    </ul>
+
+    <h1>You can also add attributes to tags</h1>
+    <p>These generall take the form of &lttag name = "value"&gt&lt/tag&gt<</p>
+    <p>However not all tags have to have the end tag. and example is a image which can use &ltimg src="corgi.png"&gt to insert a image</p>
+    <image src="corgi.jpg">
+    <p>The corgi.png is the file path. If the file is in the same folder as the html you can just name it. But if you are trying to find a subfolders image it will try to find this file from the root directory of your website. To find the file in relation to the current folder use ./ before the file to dictate current folder or ../ for parent folder</p>
+    <p>ex. tag &ltimage src="./Pic/corgi.jpg"&gt finds a image from the pic folder under the current dirctory.</p>
+    <image src="./Pic/corgi.jpg">
+    <p>This can also work with a Website too like the hyperlink desciption</p>
+    <p>Another tag example that uses a attripute is the &lta%gt (anchor) tag which is used to link to another site/page</p>
+    <p>example &lta href="Exercise1.html"&gtLink to page&lt/a&gt makes text that when clicked directs the site too the Exercise1 html file"</p>
+    <p>A tags are inline elements so they can be inserted into any body tag</p>
+    <a href="Exercise1.html">Link to page</a>
+    <p>To get to another site such as google include http: before the site name. &lta href="http:www.google.com"&gtLink to Google&lt/a&gt</p>
+    <a href="http:www.google.com">Link to Google</a>
+</body>
+</html>
