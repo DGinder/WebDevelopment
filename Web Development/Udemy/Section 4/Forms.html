@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form Demo</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <!-- Form is a container for input. acts like a block element and starts a new line afterwards -->
+    <!--action - where the form sends data too-->
+    <!--method - what http method (get/post) -->
+    <form action="" method="POST">
+        <!--Method 1 for labeled input-->
+        <label>
+            Email:  <input name="email" type="email" required>
+        </label>
+        <p></p>
+        <!--Method 2 for labeled input-->
+        <label for="password">Password: </label>
+        <input id="password" name="password"type="password" required><p></p>
+
+        <button>Submit</button>
+    </form>
+</body>
+</html>
