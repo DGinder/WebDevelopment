@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register Sample</title>
+</head>
+<body>
+    <h1>Register</h1>
+    <form action="" method="POST">
+        <!--First line for name-->
+        <label for="First">First Name: </label>
+        <input type="text" id="First" name = "First" placeholder="John" required>
+        <label for="Last">Last Name: </label>
+        <input type="text" id="Last" name = "Last" placeholder="Smith" required>
+        <br>
+
+        
+        <!--Second line for gender-->
+        <label for="Male" >Male </label>
+        <input type="radio" id="Male" name="Gender" value="male" required>
+        <label for="Female" >Female </label>
+        <input type="radio" id="Female" name="Gender" value="female">
+        <label for="Other" >Other </label>
+        <input type="radio" id="Other" name="Gender" value="other">
+        <br>
+
+        
+        <!--Third line for email and password-->
+        <label for="Email">Email: </label>
+        <input id="Email" name = "Email" type="email" placeholder="your email" required>
+        <label for="Password">Password: </label>
+        <input id="Password" name = "password" type="password" placeholder="your password" pattern=".{5,10}" required title="5 to 10 characters">
+        <br>
+        
+        
+        <!--Fourth line for birthday-->
+        <label>
+            Birthday: 
+            <select name="Birthday" id="Month" required>
+                <option value=""  disabled selected hidden>Month</option>
+                <option value=1>Jan</option>
+                <option value=2>Feb</option>
+                <option value=3>Mar</option>
+            </select>
+            <select name="Birthday" id="Day">
+                    <option value=""  disabled selected hidden>Day</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+            </select>
+            <select name="Birthday" id="Year">
+                    <option value=""  disabled selected hidden>Year</option>
+                    <option value="1">2019</option>
+                    <option value="2">2018</option>
+                    <option value="3">2017</option>
+        </label>
+        <br>
+
+        
+        <!--FIfth line for conditions-->
+        <label>
+            I agree to the terms and conditions
+            <input type="checkbox" name="Cond" id="1">
+        </label>
+        <br>
+
+        
+        <!--Last line for submit-->
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
