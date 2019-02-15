@@ -1,0 +1,51 @@
+/*Showing inheritance of css*/
+/*the most specific a css if to a element is aplied*/
+/*ex of specificity in ascending order of being applied*/
+
+body {
+    color: red;
+}
+
+ul{
+    color: purple;
+}
+
+
+li:nth-of-type(2){
+    color: blue;
+}
+
+.Highlight{
+    color: cyan;
+}
+
+#special {
+    color: green;
+}
+
+/*actual order ascending*/
+ol {
+
+}
+
+ol li{
+
+}
+ol + a {
+
+}
+
+.hello {
+
+}
+
+a[href=""] {
+
+}
+
+#hello {
+    
+}
+
+
+

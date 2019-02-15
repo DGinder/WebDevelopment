@@ -1,0 +1,47 @@
+/*Element*/
+/*Select all of a specific element*/
+li {
+    
+}
+
+/*class*/
+/*Select all of a specific class tag*/
+.hello {
+
+}
+
+/*id*/
+/*Select all of a specific id*/
+#name {
+
+}
+
+/*Star*/
+/*Select everything*/
+* {
+
+}
+
+/*Descendant Selector8?
+/*Select all of a specific element inside of (nested) another element*/
+li a {
+
+}
+
+/*Adjacent Selector*/
+/*Select all of a specific element following after another specific element*/
+h4 + ul {
+
+}
+
+/*Attribute Selector*/
+/*Select all of a specific element with a certain attribute tag value*/
+a[href="http://www.google.com"] {
+
+}
+
+/*nth of type*/
+/*Select the nth number of a specific element*/
+ul:nth-of-type(3) {
+    
+}
