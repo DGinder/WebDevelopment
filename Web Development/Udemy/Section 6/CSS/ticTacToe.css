@@ -1,0 +1,33 @@
+h1.Title {
+    text-align: center;
+}
+
+table {
+    margin: auto;
+}
+
+
+td.left{
+    width: 100px;
+    height: 100px;
+    margin: 0%;
+    border-left: 1px solid black;
+}
+td.right{
+    width: 100px;
+    height: 100px;
+    margin: 0%;
+    border-right: 1px solid black;
+}
+td.top{
+    width: 100px;
+    height: 100px;
+    margin: 0%;
+    border-top: 1px solid black;
+}
+td.bottom{
+    width: 100px;
+    height: 100px;
+    margin: 0%;
+    border-bottom: 1px solid black;
+}

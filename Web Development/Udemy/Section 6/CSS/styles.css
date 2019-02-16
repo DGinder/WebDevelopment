@@ -12,8 +12,44 @@ h1 {
     font-size: 2em;
 }
 p.font1 {
-    font-size: 20px;
+    font-size: 20px; /*px is the size of the font based on screen pixels.*/
 }
-span {
+span.font1 {
+    font-size: 2em; /*em is the size of the font based on a multiple of the parent tag or around 16px at base.*/
+}
+
+/*font weight is how bold or thin a line of text is*/
+/*base values can include bold or normal, and certain fonts allow a number from 100-800*/
+p.font2 {
+    font-weight: bold;
+}
+
+span.font2{
+    font-weight: 200;
+}
+
+/*line height determins height of line.*/
+
+p.font3 {
+    line-height: 2; 
+}
+
+/*text-align determine what side the text is aligned with*/
+p.font4 {
+    text-align: center;
+}
+
+/*text-decoration is used to give underline, overline, linethroug, etc. and their color*/
+
+p.font5 {
+    text-decoration: underline;
+    text-decoration-color: red;
+}
+
+/*this section applies a embeded font family from the google fonts website*/
+/*this is just the css used though to see how to embed it into the website see fonts.html*/ 
+/*format is font-family: 'font name', OPTIONAL style(serif, cursive, etc.);*/
+p.font6 {
+    font-family: 'Libre Barcode 39 Text';
     font-size: 2em;
 }

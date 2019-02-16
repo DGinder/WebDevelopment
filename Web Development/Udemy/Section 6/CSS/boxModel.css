@@ -1,0 +1,25 @@
+p {
+    /*Content - Width and Height*/
+    /*applied though numbers is px formats, percentage of screen, etc.*/
+    width: 20%;
+
+
+    /*Border*/
+    /*some graphical representation of the edge of the element*/
+    border: 2px solid blue;
+
+    /*Padding*/
+    /*distance between element and border*/
+    /*if padding is bigger than width it supercedes it*/
+    /*can also be set only for one side*/
+    padding: 10px;
+    padding-left: 30px;
+    
+    /*Margin*/
+    /*size of space between all of the previous and the next element*/
+    /*can also be set for only 1 side*/
+    /*can also combine them into one element in order : top right bottom left.*/
+    /*the combined values can also be sopied ovver ex: 50px and 20px then nothing will give 50 for top and bottom and 20px for left and right*/
+    /* finally you can do margin auto in order to center the element to the page*/
+    margin: 5px auto;
+}
