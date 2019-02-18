@@ -5,9 +5,10 @@ img {
 }
 
 h1 {
-    font-weight: bold;
+    font-family: 'Raleway';
     padding-bottom: 20px;
     border-bottom: 2px solid lightgray;
     width: 30%;
-    margin: 1.66%;
+    margin-left: 1.66%;
+    text-transform: uppercase;
 }
