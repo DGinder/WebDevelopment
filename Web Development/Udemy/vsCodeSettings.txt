@@ -1,0 +1,22 @@
+{
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "javascript.suggest.completeFunctionCalls": true,
+    "editor.tokenColorCustomizations": {
+        "[Abyss]": {
+            "keywords": "#7ea4df",
+            "types": "#1fa8d8",
+            "comments": "#727272",
+            "strings": "#29a792",
+            "textMateRules": [
+                {
+                    "scope": "entity.name.tag",
+                    "settings": {
+                        "foreground": "#7ea4df"
+                    }
+                }
+            ]
+        }
+    },
+    "window.zoomLevel": 3,
+}
