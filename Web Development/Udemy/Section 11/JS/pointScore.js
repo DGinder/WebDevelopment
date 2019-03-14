@@ -48,5 +48,13 @@ rBtn.addEventListener("click", function(){
 input.addEventListener("change", function(){
     scoreTotal = parseInt(input.value);
     scr.textContent = scoreTotal;
+    if(p1Score >= scoreTotal){
+        p1Scr.classList.add("winner");
+        gameOver = !gameOver;
+    }
+    else if(p2Score >= scoreTotal){
+        p2Scr.classList.add("winner");
+        gameOver = !gameOver;
+    }
 });
 
