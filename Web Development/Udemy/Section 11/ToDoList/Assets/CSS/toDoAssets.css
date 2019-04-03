@@ -1,0 +1,12 @@
+/*IDS*/
+#container {
+    width: 360px;
+    border: 2px solid gray;
+    margin: 0 auto;
+}
+
+/*classes*/
+.done {
+    color: gray;
+    text-decoration: line-through;
+}
