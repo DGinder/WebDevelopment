@@ -1,0 +1,25 @@
+{
+  "name": "express-exercise",
+  "version": "1.0.0",
+  "description": "Colt's First Express Exercise",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/N/A.git"
+  },
+  "keywords": [
+    "Exercise"
+  ],
+  "author": "Darrin Ginder",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/N/A/issues"
+  },
+  "homepage": "https://github.com/N/A#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
