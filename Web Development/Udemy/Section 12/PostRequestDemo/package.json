@@ -1,0 +1,16 @@
+{
+  "name": "postrequestdemo",
+  "version": "1.0.0",
+  "description": "Web Developer Boot Camp Post Request Demo",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^2.6.1",
+    "express": "^4.17.1"
+  }
+}

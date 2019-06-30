@@ -1,6 +1,8 @@
 var express = require("express"),
     app = express();
 
+app.use(express.static("css"))
+
 //specific pages
 // "/" => "Hi There!"
 app.get("/", function(req, res){
@@ -11,6 +13,15 @@ app.get("/", function(req, res){
 app.get("/fallinlovewith/:thing", function(req, res){
     var thing = req.params.thing
     res.render("love.ejs", {thingVar: thing});
+})
+
+app.get("/posts", function(req, res){
+    var posts = [
+        { title: "Post1", author: "Suzy"},
+        { title: "Post2", author: "John"},
+        { title: "Post3", author: "Test"}
+    ]
+    res.render("posts.ejs", {posts: posts});
 })
 
 //pattern pages and route parameters
