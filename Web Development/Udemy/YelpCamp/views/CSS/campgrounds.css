@@ -1,0 +1,4 @@
+div.imgfix {
+    display: flex;
+    flex-wrap: wrap;
+}
