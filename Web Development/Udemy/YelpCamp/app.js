@@ -1,28 +1,34 @@
-var express = require("express"),
-app = express();
-var bodyParser = require("body-parser");
+//variable set up and app set up
+var express         = require("express"),
+    app             = express(),
+    bodyParser      = require("body-parser"),
+    request         = require("request"),
+    mongoose        = require("mongoose");
 app.use(bodyParser.urlencoded({ extended: true }));
-var request = require("request");
+mongoose.connect("mongodb://localhost:27017/yelp_camp", { useNewUrlParser: true });
 app.set("view engine", "ejs");
 
-var temp = [
-    {name:"Salmon Creek", image: "https://images.unsplash.com/photo-1440262206549-8fe2c3b8bf8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60"},
-    {name:"Yellowstone", image: "https://images.unsplash.com/photo-1497900304864-273dfb3aae33?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60"},
-    {name:"Other", image: "https://images.unsplash.com/photo-1476041800959-2f6bb412c8ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60"},
-    {name:"Salmon Creek", image: "https://images.unsplash.com/photo-1440262206549-8fe2c3b8bf8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60"},
-    {name:"Yellowstone", image: "https://images.unsplash.com/photo-1497900304864-273dfb3aae33?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60"},
-    {name:"Other", image: "https://images.unsplash.com/photo-1476041800959-2f6bb412c8ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60"},
-    {name:"Salmon Creek", image: "https://images.unsplash.com/photo-1440262206549-8fe2c3b8bf8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60"},
-    {name:"Yellowstone", image: "https://images.unsplash.com/photo-1497900304864-273dfb3aae33?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60"},
-    {name:"Other", image: "https://images.unsplash.com/photo-1476041800959-2f6bb412c8ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60"}
-]
+//mongodb schema and model
+var campgroundSchema = new mongoose.Schema({
+    name: String,
+    image: String
+});
+var campgroundModel = mongoose.model("Campground", campgroundSchema);
+
 
 app.get("/", (req, res) => {
     res.render("landing");
 })
 
 app.get("/campgrounds", (req, res) => {
-    res.render("campgrounds", {data: temp});
+    campgroundModel.find({}, (err, campgroundData) => {
+        if(err){
+            console.log("Oh No Error");
+            console.log(err)
+        }else{
+            res.render("campgrounds", {data: campgroundData});
+        }
+    })
 })
 
 
@@ -32,10 +38,18 @@ app.get("/campgrounds/new", (req, res) => {
 })
 
 app.post("/campgrounds", (req, res) => {
-    var name = req.body.name;
-    var image = req.body.image;
-    var newCampground = {name: name, image: image};
-    temp.push(newCampground);
+    campgroundModel.create({
+        name: req.body.name,
+        image: req.body.image
+    }, (err, campground) => {
+        if(err){
+            console.log(err)
+        }
+        else{
+            console.log("New Campground")
+            console.log(campground)
+        }
+    })
 
     res.redirect("/campgrounds");
 })
