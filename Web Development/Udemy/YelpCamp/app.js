@@ -3,55 +3,36 @@ var express         = require("express"),
     app             = express(),
     bodyParser      = require("body-parser"),
     request         = require("request"),
-    mongoose        = require("mongoose");
+    mongoose        = require("mongoose"),
+    Campground      = require("./models/campground"),
+    Comment         = require("./models/comment"),
+    seedDB          = require("./seeds");
+    //user            = require("./models/user");
+seedDB();
 app.use(bodyParser.urlencoded({ extended: true }));
 mongoose.connect("mongodb://localhost:27017/yelp_camp", { useNewUrlParser: true });
 app.set("view engine", "ejs");
 
-//mongodb schema and model
-var campgroundSchema = new mongoose.Schema({
-    name: String,
-    image: String,
-    description: String
-});
-var campgroundModel = mongoose.model("Campground", campgroundSchema);
-
-// campgroundModel.create(
-//     {
-//         name: "Granite Hill",
-//         image: "https://farm1.staticflickr.com/60/215827008_6489cd30c3.jpg",
-//         description: "This is a huge granite hill. No bathrooms. No water. Beutiful granite!"
-//     },
-//     (err, campground) => {
-//         if(err){
-//             console.log(err);
-//         }
-//         else{
-//             console.log("New Campground:");
-//             console.log(campground);
-//         }
-//     }
-// );
 
 app.get("/", (req, res) => {
     res.render("landing");
 })
 
-//Restful INDEX
+//Restful INDEX Campground
 app.get("/campgrounds", (req, res) => {
-    campgroundModel.find({}, (err, campgroundData) => {
+    Campground.find({}, (err, campgroundData) => {
         if(err){
             console.log("Oh No Error");
             console.log(err)
         }else{
-            res.render("index", {data: campgroundData});
+            res.render("./Campgrounds/index", {data: campgroundData});
         }
     })
 })
 
-//Restful CREATE
+//Restful CREATE Campground
 app.post("/campgrounds", (req, res) => {
-    campgroundModel.create({
+    Campground.create({
         name: req.body.name,
         image: req.body.image,
         description: req.body.description
@@ -69,24 +50,71 @@ app.post("/campgrounds", (req, res) => {
 })
 
 
-//Restful NEW
+//Restful NEW Campground
 app.get("/campgrounds/new", (req, res) => {
-    res.render("new.ejs");
+    res.render("./Campgrounds/new.ejs");
 })
 
-//Restful SHOW
+//Restful SHOW Campground
 app.get("/campgrounds/:id", (req, res) => {
     //find campground with id
-    campgroundModel.findById(req.params.id, (err, foundCampground) => {
+    Campground.findById(req.params.id).populate("comments").exec(function(err, foundCampground){
         if(err){
             //if error
             console.log("Oh No Error");
-            console.log(err)
+            console.log(err);
+        }else{
+            res.render("./Campgrounds/show", {campground: foundCampground});
+        }
+    });
+});
+
+//===================
+//Comments Route    =
+//===================
+
+//Restful New Comment
+app.get("/campgrounds/:id/comments/new", (req, res) => {
+    
+    //find campground with id
+    Campground.findById(req.params.id).populate("comments").exec(function(err, foundCampground){
+        if(err){
+            //if error
+            console.log("Oh No Error");
+            console.log(err);
         }else{
             //render campground
-            res.render("show", {campground: foundCampground});
+            res.render("./Comments/new", {campground: foundCampground});
         }
-    })
+    });
+});
+
+app.post("/campgrounds/:id/comments/", (req, res) => {
+    
+    //find campground with id
+    Campground.findById(req.params.id).populate("comments").exec(function(err, foundCampground){
+        if(err){
+            //if error
+            console.log("Oh No Error");
+            console.log(err);
+            res.render("/campgrounds");
+        }else{
+            //render campground
+            Comment.create(req.body.comment, (err, comment) => {
+                if(err){
+                    //if error
+                    console.log("Oh No Error");
+                    console.log(err);
+                    res.render("/campgrounds");
+                }
+                else{
+                    foundCampground.comments.push(comment);
+                    foundCampground.save();
+                    res.redirect("/campgrounds/" + foundCampground._id)
+                }
+            });
+        }
+    });
 });
 
 
