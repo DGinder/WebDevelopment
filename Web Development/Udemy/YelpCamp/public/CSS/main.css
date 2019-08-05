@@ -1,0 +1,12 @@
+div.imgfix {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.img-thumbnail .img-fluid {
+    width: 100%;
+}
+.img-thumbnail {
+    padding: 0;
+}
+
