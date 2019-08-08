@@ -29,7 +29,7 @@ app.get("/", (req, res) => {
     res.render("home");
 });
 
-app.get("/secret", (req, res) => {
+app.get("/secret",isLoggedIn, (req, res) => {
     res.render("secret");
 });
 
@@ -44,7 +44,7 @@ app.post("/register", (req, res) => {
     User.register(new User({username: req.body.username}), req.body.password, (err, user) => {
         if(err){
             console.log(err);
-            return res.render('register')
+            return res.render('register');
         }
         console.log(user)
         passport.authenticate("local")(req, res, function(){
@@ -71,6 +71,13 @@ app.get("/logout", (req, res) => {
     req.logOut();
     res.redirect("/")
 });
+
+function isLoggedIn(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    res.redirect("/login");
+}
 
 var server = app.listen(3000, function () {
     var host = server.address().address;
