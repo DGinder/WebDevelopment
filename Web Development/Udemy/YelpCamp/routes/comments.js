@@ -46,6 +46,10 @@ router.post("/",isLoggedIn, (req, res) => {
                     comment.time = new Date();
                     //save
                     comment.save();
+
+                    req.user.comments.push(comment);
+                    req.user.save();
+
                     foundCampground.comments.push(comment);
                     foundCampground.save();
                     res.redirect("/campgrounds/" + foundCampground._id)

@@ -3,13 +3,13 @@ var passportLocalMongoose   = require("passport-local-mongoose");
 
 var userSchema = new mongoose.Schema({
     username: String,
-    password: String//,
-    // comments: [
-    //     {
-    //         type: mongoose.Schema.Types.ObjectId,
-    //          ref: "Comment"
-    //     }
-    // ]
+    password: String,
+    comments: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+             ref: "Comment"
+        }
+    ]
 });
 
 userSchema.plugin(passportLocalMongoose);

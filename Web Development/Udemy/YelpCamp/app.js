@@ -13,13 +13,15 @@ var express             = require("express"),
     seedDB              = require("./seeds"),
     campgroundRoutes    = require("./routes/campgrounds"),
     commentsRoutes      = require("./routes/comments"),
-    indexRoutes         = require("./routes/index");
-seedDB();
+    indexRoutes         = require("./routes/index"),
+    methodOverride      = require("method-override");
+//seedDB();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "\\public"));
 app.use(expressSanitizer());
 mongoose.connect("mongodb://localhost:27017/yelp_camp", { useNewUrlParser: true });
 app.set("view engine", "ejs");
+app.use(methodOverride("_method"));
 
 //passport configuration
 app.use(require("express-session")({
@@ -27,6 +29,8 @@ app.use(require("express-session")({
     resave: false,
     saveUninitialized: false
 }));
+
+//passport set up
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(user.authenticate()));
