@@ -1,0 +1,96 @@
+body {
+    background-color: black;
+}
+
+#landing-header {
+    /* moves the item foward on the z axis (in forn tof things below it */
+    /* can only be use when position is reletive */
+    z-index: 1;
+    position: relative;
+    text-align: center;
+    /* pushes the image a certain distance of the view */
+    padding-top: 40vh;
+}
+#landing-header h1{
+    color: white;
+}
+
+.slideshow {
+    /* keeps item no matter scroll */
+    position: fixed;
+    /* cover all of area */
+    width: 100%;
+    height: 100%;
+    /* move to top left of screen  */
+    top: 0;
+    left: 0;
+    z-index: 0;
+    /* gets rid of bullet point */
+    list-style: none;
+    /* makes item cover entire area */
+    margin: 0;
+    padding: 0;
+
+}
+.slideshow li {
+    /* keeps item in relative to parents position */
+    position: absolute;
+    /* cover all of area */
+    width: 100%;
+    height: 100%;
+    /* move to top left of screen  */
+    top: 0;
+    left: 0;
+    z-index: 0;
+    /* makes image cover entire area */
+    background-size: cover;
+    /* makes image in center entire area */
+    background-position: 50% 50%;
+    /* makes image start faded */
+    opacity: 0;
+    /* call animation */
+    animation: imageAnimation 50s linear infinite;
+}
+
+.slideshow li:nth-child(1) {
+    background-image: url(http://i.imgur.com/K3mPv14.jpg);
+}
+.slideshow li:nth-child(2) {
+    background-image: url(http://i.imgur.com/SBEmFpv.jpg);
+    animation-delay: 10s;
+}
+.slideshow li:nth-child(3) {
+    background-image: url(http://i.imgur.com/emvhOnb.jpg);
+    animation-delay: 20s;
+}
+.slideshow li:nth-child(4) {
+    background-image: url(http://i.imgur.com/2LSMCmJ.jpg);
+    animation-delay: 30s;
+}
+.slideshow li:nth-child(5) {
+    background-image: url(http://i.imgur.com/TVGe0Ef.jpg);
+    animation-delay: 40s;
+}
+
+/* set up animation with specified name and properties */
+@keyframes imageAnimation { 
+    0% { 
+      opacity: 0; 
+      animation-timing-function: ease-in;
+    }
+    10% {
+      opacity: 1;
+      animation-timing-function: ease-out;
+    }
+    20% {
+      opacity: 1
+    }
+    30% {
+      opacity: 0
+    }
+}
+
+  /* Older browser support - .no-cssanimations class added by modernizr */
+.no-cssanimations .slideshow li {
+	opacity: 1;
+}

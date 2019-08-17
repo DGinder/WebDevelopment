@@ -4,6 +4,7 @@ mongoose.set('useFindAndModify', false);
 var campgroundSchema = new mongoose.Schema({
     name: String,
     image: String,
+    price: String,
     description: String,
     author:{
         id: {
@@ -22,7 +23,7 @@ var campgroundSchema = new mongoose.Schema({
 
 const Comment = require('./comment');
 campgroundSchema.pre('remove', async function() {
-	await Comment.remove({
+	await Comment.deleteMany({
 		_id: {
 			$in: this.comments
 		}
